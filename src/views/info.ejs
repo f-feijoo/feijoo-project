@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("templates/head") %>
+  <body>
+    <%- include("templates/navbar") %>
+    <br />
+    <br />
+    <div class="container mt-5">
+      <h1 class="text-center">Informacion de usuario</h1>
+      <br />
+      <br />
+      <div class="g-4">
+        <div class="card h-100">
+          <img
+            src=".\<%= user.avatar %>"
+            class="card-img-top m-auto"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= user.nombre %></h5>
+            <p class="card-text text-center">Email: <%= user.username %></p>
+            <p class="card-text text-center">
+              Direccion: <%= user.direccion %>
+            </p>
+            <p class="card-text text-center">Edad: <%= user.edad %></p>
+            <p class="card-text text-center">Telefono: +<%= user.telefono %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+  </body>
+</html>

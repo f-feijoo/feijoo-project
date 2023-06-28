@@ -1,0 +1,68 @@
+<nav class="sticky-top navbar navbar-dark bg-dark navbar-expand-lg">
+  <div class="container-fluid justify-content-between">
+    <button
+      class="navbar-toggler  mb-2"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item mb-2">
+          <a
+            class="nav-link me-2 btn btn-outline-primary"
+            aria-current="page"
+            onclick="location.href='/'"
+            >Inicio</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            class="nav-link me-2 btn btn-outline-primary"
+            onclick="location.href='/api/productos'"
+            >Productos</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            class="nav-link me-2 btn btn-outline-primary"
+            onclick="location.href='<%= nroC %>'"
+            >Carrito</a
+          >
+        </li>
+      </ul>
+    </div>
+    <% if (user) { %>
+    <div>
+      <ul class="d-flex me-auto mb-2 mb-lg-0">
+        <a class="navbar-brand" href="/info">Mi cuenta %></a>
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-outline-primary"
+            onclick="location.href='/logout'"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <% } else { %>
+    <div>
+      <ul class="me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-outline-primary"
+            onclick="location.href='/login'"
+            >Login</a
+          >
+        </li>
+      </ul>
+    </div>
+    <% } %>
+  </div>
+</nav>
