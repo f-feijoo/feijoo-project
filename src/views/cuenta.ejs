@@ -11,21 +11,23 @@
       <br />
       <div class="g-4">
         <div class="card h-100">
-          <img
-            src=".\<%= user.avatar %>"
-            class="card-img-top m-auto"
-            alt="..."
-          />
           <div class="card-body">
             <h5 class="card-title text-center"><%= user.nombre %></h5>
             <p class="card-text text-center">Email: <%= user.username %></p>
             <p class="card-text text-center">
               Direccion: <%= user.direccion %>
             </p>
-            <p class="card-text text-center">Edad: <%= user.edad %></p>
             <p class="card-text text-center">Telefono: +<%= user.telefono %></p>
           </div>
         </div>
+        <br>
+        <div class="d-flex justify-content-around"><a
+          class="btn btn-success"
+          onclick="location.href='/micuenta/modificar'"
+          >Actualizar</a
+        ></div>
+        
+          <br>
       </div>
     </div>
     <br />

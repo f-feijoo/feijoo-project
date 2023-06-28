@@ -4,7 +4,7 @@ import { CarritoService } from "../services/carritoService.js";
 const carritoService = new CarritoService();
 const usuarioService = new UsuarioService();
 
-export const info = async (req, res) => {
+export const mostrarCuenta = async (req, res) => {
   let carrito = await carritoService.mostrarCarrito({
     usuario: req.user.username,
   });
@@ -14,8 +14,27 @@ export const info = async (req, res) => {
   } else {
     param = "#";
   }
-  res.render("info", {
+  res.render("cuenta", {
     nroC: param,
     user: await usuarioService.mostrarUsuario({ username: req.user.username }),
   });
 };
+
+export const modificarCuenta = async (req, res) => {
+  let carrito = await carritoService.mostrarCarrito({
+    usuario: req.user.username,
+  });
+  let param;
+  if (carrito) {
+    param = "api/carritos/" + carrito.id + "/productos";
+  } else {
+    param = "#";
+  }
+  res.render("cuentaMod", {
+    nroC: param,
+    user: await usuarioService.mostrarUsuario({ username: req.user.username }),
+  });
+}
+
+export const actualizarCuenta = async (req, res) => {}
+

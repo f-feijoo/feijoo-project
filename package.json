@@ -1,24 +1,16 @@
 {
-  "name": "proyecto-final-ch-backend",
+  "name": "toners",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/f-feijoo/proyecto-final-ch-backend.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/f-feijoo/proyecto-final-ch-backend/issues"
-  },
-  "homepage": "https://github.com/f-feijoo/proyecto-final-ch-backend#readme",
   "dependencies": {
     "autocannon": "^7.9.0",
     "bcrypt": "^5.0.1",

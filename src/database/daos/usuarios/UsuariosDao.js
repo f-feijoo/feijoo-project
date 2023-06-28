@@ -16,14 +16,8 @@ class UsuariosDao extends ContenedorMongoDb {
       direccion: {
         type: String,
       },
-      edad: {
-        type: Number,
-      },
       telefono: {
         type: Number,
-      },
-      avatar: {
-        type: String,
       },
     });
   }

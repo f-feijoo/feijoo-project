@@ -18,10 +18,6 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, username, password, done) => {
-      let file = req.file;
-      if (!file) {
-        return res.status(400).send({ message: "Error al cargar imagen" });
-      }
       let user = { username: username };
       const usuarioBD = await usuarioService.mostrarUsuario(user);
       if (usuarioBD) {
@@ -35,9 +31,7 @@ passport.use(
         password: await usuarioService.encriptarContraseña(password),
         nombre: req.body.nombre,
         direccion: req.body.direccion,
-        edad: req.body.edad,
         telefono: req.body.telefono,
-        avatar: "uploads/" + file.filename,
       });
       await sendMail(usuarioNuevo);
       done(null, usuarioNuevo);
