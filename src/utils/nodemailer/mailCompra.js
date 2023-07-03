@@ -31,7 +31,7 @@ export default async (user, carrito) => {
   await transporter.sendMail({
     from: "Tienda Francisco Feijoo",
     to: user.username,
-    subject: "Nuevo pedido de " + user.nombre + ' <' + user.username + '>',
+    subject: 'Tienda Francisco Feijoo',
     html: `<h1>Nuevo pedido de ${user.nombre}</h1>
             ` + html
   });

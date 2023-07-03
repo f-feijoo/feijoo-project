@@ -4,33 +4,45 @@
   <body>
     <%- include("templates/navbar") %>
     <div class="container mt-5 overflow-auto text-center">
-      <br />
-      <br />
       <h1>Bienvenido a Mi Tienda</h1>
       <br />
-      <br />
       <p>
-        Un carrito se le asigno automáticamente al iniciar sesión. Si desea eliminarlo podra hacerlo desde la seccion #Carrito, y crear otro desde la dirección donde se encuentra. Si cierra sesión, se eliminar automaticamente el carrito.
+        Bienvenido, y antes que nada gracias por tomarte el tiempo de ver mi proyecto. En este mismo busco mostrar mis habilidades construyendo un producto lo mas cercano a la realidad posible. Este proyecto esta enfocado en la parte del backend, el cual considero mi fuerte. Esta basado en el proyecto final que realize en el curso de Programacion Backend de Coderhouse, agregando multiples funcionalidades que no se vieron en el curso. Se priorizaron las funciones principales de la pagina, como el logeo, el manejo del carrito y la compra de los productos, por ende puede que algunas funcionalidades no esten consideradas.
       </p>
       <br />
       <br />
       <p>
-        Proceda a la seccion #Productos donde encontrara los productos
-        disponibles para comprar.
+        Este es un proyecto desarrollado en el patron MVC, basado en el entorno de desarrollo Node.js, usando el framework Express y MongoDb como base de datos. Su renderizado se da desde el backend usando "EJS" como plantilla, acompañado de Bootstrap para el css. Los logeos en consola se manejan con el modulo "log4js", y se uso "autocannon" para el testeo. Ademas se usa "gzip" para comprimir los modulos y asi mejorar la velocidad de la pagina, y "dotenv" para el uso de variables de entorno.
       </p>
       <br />
       <br />
       <p>
-        Una vez finalizada la eleccion de los productos, dirigirse a la seccion
-        #Carrito donde encontrara un resumen y el boton de compra.
+        El registro de usuario y el login fueron desarrollados usando el modulo "passport" y su derivacion "passport-local", y junto a el modulo "express-session" se manejan las sesiones de la pagina. Mediante el modulo "bcrypt" se encriptan las contraseñas para mayor seguridad. Se usaron "nodemailer" y "twilio" para el envio de mails y mensajes/whatsapp, respectivamente.
       </p>
       <br />
       <br />
-      <p>Desde ya muchas gracias!</p>
+      <p>
+        Se uso la api de MercadoPago con su modulo Checkout Pro para la realizacion de pagos. Al ser un proyecto que simula lo real pero que no lo es, se dejaron credenciales de prueba para el checkout(se recomienda no estar logeado en MercadoPago), por eso para el mismo se deberan usar los siguiente datos:
+      </p>
+      <ul>
+        <li>Usuario: TESTUSER196143452</li>
+        <li>Contraseña: KBgpVJxJSD</li>
+        <li>Nro Tarjeta:5031 7557 3453 0604
+        </li>
+        <li>CVV:123</li>
+        <li>Vencimiento: 11/25</li>
+        <li>Nombre: APRO</li>
+        <li>DNI: 12345678</li>
+      </ul>
+      <h5>OJO! Estos datos son para mercadopago, no para el registro de la pagina.</h5>
+      <br />
+      <br />
+      <p>Desde ya muchas gracias! Francisco Feijoo</p>
     </div>
     <br />
     <br />
     <br />
     <br />
   </body>
+  <%- include("templates/footer") %>
 </html>
