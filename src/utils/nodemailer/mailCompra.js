@@ -11,9 +11,9 @@ export default async (user, carrito) => {
         <th scope="row">${x.nombre}</th>
         <td>${x.desc}</td>
         <td>$${x.precio}</td>
-        <td>$${x.cantidad}</td>
-        <td><img src=${x.img} width="40"
-            height="40" alt="..."></td>
+        <td>x${x.cantidad}</td>
+        <td><img src=${x.img} width="20"
+            height="20" alt="..."></td>
         </tr>
         `;
     })
@@ -29,8 +29,8 @@ export default async (user, carrito) => {
   });
 
   await transporter.sendMail({
-    from: "Tienda Francisco Feijoo <" + process.env.MAIL_USER + ">",
-    to: mailAdministrador,
+    from: "Tienda Francisco Feijoo",
+    to: user.username,
     subject: "Nuevo pedido de " + user.nombre + ' <' + user.username + '>',
     html: `<h1>Nuevo pedido de ${user.nombre}</h1>
             ` + html

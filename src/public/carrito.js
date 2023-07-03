@@ -22,3 +22,5 @@ async function deleteProd(url) {
   });
   return response.json();
 }
+
+

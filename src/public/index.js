@@ -18,4 +18,3 @@ async function sendPost(url) {
     }),
   }).then((response) => response.json());
 }
-

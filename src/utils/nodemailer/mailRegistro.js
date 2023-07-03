@@ -21,9 +21,8 @@ export default async (user) => {
             <h1>Nuevo usuario registrado</h1>
             <p>Se registro el usuario ${user.nombre}</p>
             <p>Su correo es ${user.username} y su contraseña es ${user.password}(encriptada)</p>
-            <p>Tiene ${user.edad} años, y vive en ${user.direccion}</p>
-            <p>Su telefono es +${user.telefono}</p>
-            <p>Su avatar o foto subida: </p><img src=".\\${user.avatar}"/>
+            <p>Tiene de direccion ${user.direccion}</p>
+            <p>Su telefono es +${user.telefono}</p>            
             `,
   });
 };

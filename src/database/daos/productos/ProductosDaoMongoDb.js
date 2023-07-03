@@ -8,6 +8,7 @@ class ProductosDaoMongoDb extends ContenedorMongoDb {
       img: { type: String, required: true },
       precio: { type: Number, required: true },
       categoria: { type: String, required: true },
+      stock: { type: Number, required: true },
     });
   }
 }

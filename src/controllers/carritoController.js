@@ -6,6 +6,7 @@ import mailCompraAdmin from "../utils/nodemailer/mailCompra.js";
 import mensajeCliente from "../utils/twilio/mensajeCompra.js";
 import mensajeCompraAdmin from "../utils/twilio/whatsappCompra.js";
 import moment from "moment/moment.js";
+import { configuracionMercadoPago } from "../utils/mercadopago/mercadopago.js";
 
 const carritoService = new CarritoService();
 const productoService = new ProductoService();
@@ -24,6 +25,7 @@ export const mostrarCarrito = async (req, res) => {
     idCarrito: req.params.id,
     user: await usuarioService.mostrarUsuario({ username: req.user.username }),
     precioTotal: precioTotal,
+    idMP: await configuracionMercadoPago(chart),
   });
 };
 
@@ -46,13 +48,13 @@ export const agregarProducto = async (req, res) => {
 export const finalizarCarrito = async (req, res) => {
   const carrito = await carritoService.mostrarCarrito({ _id: req.params.id });
   await carritoService.eliminarCarrito(req.params.id);
-  const ordenesNumero = await ordenesService.mostrarOrden()
+  const ordenesNumero = await ordenesService.mostrarOrden();
   const orden = {
     productos: carrito.productos,
     numero: ordenesNumero.length,
     timestamp: moment().format("DD/MM/YYYY HH:mm:ss"),
     usuario: req.user.username,
-    estado: "generada",
+    estado: "pagada",
   };
   await ordenesService.crearOrden(orden);
   await mailCompraAdmin(req.user, orden);
@@ -64,10 +66,9 @@ export const finalizarCarrito = async (req, res) => {
   }
   res.render("comprado", {
     data: orden,
-    nroC: "/api/carritos/" + req.params.id + "/productos",
-    idCarrito: req.params.id,
+    nroC: "/api/carritos/" + await carritoService.crearCarrito().id + "/productos",
     user: req.user,
-    precioTotal : precioTotal
+    precioTotal: precioTotal,
   });
 };
 
@@ -76,9 +77,11 @@ export const crearCarrito = async (req, res) => {
     username: req.user.username,
   });
 
-  const carrito = await carritoService.mostrarCarrito({ usuario: usuario.username });
+  const carrito = await carritoService.mostrarCarrito({
+    usuario: usuario.username,
+  });
 
-  if(!carrito){
+  if (!carrito) {
     let obj = {
       timestamp: Date.now(),
       productos: [],

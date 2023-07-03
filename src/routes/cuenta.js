@@ -9,6 +9,6 @@ router.get("/", mostrarCuenta);
 
 router.get("/modificar", modificarCuenta)
 
-router.put("/", actualizarCuenta)
+router.post("/", actualizarCuenta)
 
 export default router;

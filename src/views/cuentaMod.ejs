@@ -9,45 +9,63 @@
       <h1 class="text-center">Informacion de usuario</h1>
       <br />
       <br />
-      <div class="g-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title text-center"><%= user.nombre %></h5>
-            <p class="card-text text-center">Email: <%= user.username %></p>
-            <p class="card-text text-center">
-              Direccion: <%= user.direccion %>
-            </p>
-            <p class="card-text text-center">Telefono: +<%= user.telefono %></p>
-          </div>
-        </div>
-      </div>
       <div class="container mt-5">
-        <form id="modificarCuenta" action="/api/micuenta" method="put" enctype="application/x-www-form-urlencoded">
+        <form
+          id="modificarCuenta"
+          action="/micuenta"
+          method="post"
+          enctype="application/x-www-form-urlencoded"
+        >
+          <div class="">
             <div class="">
-                <div class="">
-                    <label class="form-label" for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombre" placeholder="Nombre" id="nombre" required>
-                </div>
-                <br>
-                <div class="">
-                    <label class="form-label" for="direccion">Direccion</label>
-                    <input class="form-control" type="text" name="direccion" placeholder="Direccion" id="direccion" required>
-                </div>
-                <br>
-                <div class="">
-                    <label class="form-label" for="telefono">Imagen</label>
-                    <input class="form-control" type="text" name="telefono" placeholder="Telefono" id="telefono" required>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-success">Actualizar</button>
+              <label class="form-label" for="nombre">Nombre</label>
+              <input
+                class="form-control"
+                type="text"
+                name="nombre"
+                placeholder="Nombre"
+                id="nombreMod"
+                required
+              />
             </div>
-            <br>
-            <br>
-                
+            <br />
+            <div class="">
+              <label class="form-label" for="direccion">Direccion</label>
+              <input
+                class="form-control"
+                type="text"
+                name="direccion"
+                placeholder="Direccion"
+                id="direccionMod"
+                required
+              />
+            </div>
+            <br />
+            <div class="">
+              <label class="form-label" for="telefono">Imagen</label>
+              <input
+                class="form-control"
+                type="text"
+                name="telefono"
+                placeholder="Telefono"
+                id="telefonoMod"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Actualizar</button>
+          </div>
+          <br />
+          <br />
         </form>
-    </div>
+      </div>
     </div>
     <br />
     <br />
   </body>
+  <script>
+    document.getElementById("nombreMod").value = "<%= user.nombre %>";
+    document.getElementById("direccionMod").value = "<%= user.direccion %>";
+    document.getElementById("telefonoMod").value = "<%= user.telefono %>";
+  </script>
 </html>

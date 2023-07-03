@@ -57,6 +57,7 @@ export const agregarProducto = async (req, res) => {
       img: req.body.img,
       precio: Number.parseInt(req.body.precio),
       categoria: req.body.categoria,
+      stock: req.body.stock
     };
     res.render("uploaded", {
       data: await productoService.agregarProducto(productoNuevo),

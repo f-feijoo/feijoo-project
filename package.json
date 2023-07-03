@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "start": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "express-session": "^1.17.3",
     "firebase-admin": "^10.2.0",
     "log4js": "^6.6.1",
+    "mercadopago": "^1.5.16",
     "moment": "^2.29.3",
     "mongodb": "^4.7.0",
     "mongoose": "^6.3.6",
@@ -30,5 +31,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "twilio": "^3.80.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

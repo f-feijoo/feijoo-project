@@ -36,5 +36,25 @@ export const modificarCuenta = async (req, res) => {
   });
 }
 
-export const actualizarCuenta = async (req, res) => {}
+export const actualizarCuenta = async (req, res) => {
+  let carrito = await carritoService.mostrarCarrito({
+    usuario: req.user.username,
+  });
+  let param;
+  if (carrito) {
+    param = "api/carritos/" + carrito.id + "/productos";
+  } else {
+    param = "#";
+  }
+  let usuarioMod = {
+    ...req.body,
+    id: req.user.id,
+    username: req.user.username,
+    password: req.user.password
+  }
+  res.render("cuenta", {
+    nroC: param,
+    user: await usuarioService.actualizarUsuario(usuarioMod),
+  });
+}
 

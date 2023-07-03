@@ -12,6 +12,10 @@ export class UsuarioService {
       return await this.usuario.guardar(obj);
   }
 
+  async actualizarUsuario(obj) {
+    return await this.usuario.actualizar(obj)
+  }
+
   async compararContraseña(encriptada, contraseña) {
     return await this.usuario.comparar(encriptada, contraseña);
   }
