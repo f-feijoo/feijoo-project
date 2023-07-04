@@ -1,4 +1,5 @@
 import("./utils/passport/local.js");
+import cors from "cors";
 import compression from "compression";
 import MongoStore from "connect-mongo";
 const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -28,6 +29,7 @@ app.use(compression());
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(
   session({
     store: MongoStore.create({
