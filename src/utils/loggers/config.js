@@ -2,13 +2,13 @@ import log4js from "log4js";
 export default log4js.configure({
   appenders: {
     miLoggerConsole: { type: "console" },
-    miWarnFile: { type: "file", filename: "warn.log" },
+    miWarnFile: { type: "console"},
     warnFileLevel: {
       type: "logLevelFilter",
       appender: "miWarnFile",
       level: "warn",
     },
-    miErrorFile: { type: "file", filename: "error.log" },
+    miErrorFile: { type: "console"},
     errorFileLevel: {
       type: "logLevelFilter",
       appender: "miErrorFile",
