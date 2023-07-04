@@ -20,9 +20,9 @@ export const configuracionMercadoPago = (carrito) => {
   let preference = {
     items: productosMP,
     back_urls: {
-      success: "http://localhost:8080/api/carritos/" + carrito.id + "/productos/finalizar",
-      failure: "http://localhost:8080/api/carritos/"+ carrito.id + "/productos/",
-      pending: "http://localhost:8080/",
+      success: "https://feijoo-project.onrender.com/api/carritos/" + carrito.id + "/productos/finalizar",
+      failure: "https://feijoo-project.onrender.com/api/carritos/"+ carrito.id + "/productos/",
+      pending: "https://feijoo-project.onrender.com/",
     },
     auto_return: "approved",
   };
