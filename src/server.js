@@ -4,7 +4,7 @@ import cluster from "cluster";
 import os from "os";
 import log4js from "./utils/loggers/config.js";
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 import http from "http";
 
