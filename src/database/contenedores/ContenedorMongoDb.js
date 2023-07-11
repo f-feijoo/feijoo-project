@@ -6,7 +6,11 @@ import log4js from "../../utils/loggers/config.js";
 const loggerFiles = log4js.getLogger("errorLogs");
 const loggerConsole = log4js.getLogger();
 
-mongoose.connect(config.mongodb.cnxStr, config.mongodb.options);
+mongoose
+  .connect(config.mongodb.cnxStr, config.mongodb.options)
+  .catch((error) => {
+    loggerFiles.error(error);
+  });
 
 mongoose.connection.on("open", () => {
   loggerConsole.info("Database ok!");
